@@ -1,0 +1,49 @@
+// Datos de ejemplo para el historial mensual
+const historialMesData = [
+  { fecha: "2026-09-03", curso: "Matemáticas", link: "#", estado: "Completada" },
+  { fecha: "2026-09-04", curso: "Informática", link: "#", estado: "Pendiente" },
+  { fecha: "2026-09-05", curso: "Contabilidad", link: "#", estado: "Cancelada" },
+  { fecha: "2026-09-06", curso: "Inglés", link: "#", estado: "Completada" }
+];
+
+// Abrir modal y cargar tabla mensual
+function abrirCalendario() {
+  const cuerpoTabla = document.getElementById("cuerpoTablaMes");
+  cuerpoTabla.innerHTML = "";
+  historialMesData.forEach(clase => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+      <td>${clase.fecha}</td>
+      <td>${clase.curso}</td>
+      <td><a href="${clase.link}">Ver grabación</a></td>
+      <td class="estado-${clase.estado.toLowerCase()}">${clase.estado}</td>
+    `;
+    cuerpoTabla.appendChild(fila);
+  });
+  document.getElementById("modalCalendario").style.display = "block";
+}
+
+// Cerrar modal
+function cerrarCalendario() {
+  document.getElementById("modalCalendario").style.display = "none";
+}
+
+// Buscar clase por fecha seleccionada
+function buscarClasePorFecha() {
+  const fechaSeleccionada = document.getElementById("fechaBusqueda").value;
+  const resultado = document.getElementById("resultadoBusqueda");
+  resultado.innerHTML = "";
+
+  const clase = historialMesData.find(c => c.fecha === fechaSeleccionada);
+  if (clase) {
+    resultado.innerHTML = `${clase.fecha} - ${clase.curso} (${clase.estado}) <a href="${clase.link}">Ver grabación</a>`;
+  } else {
+    resultado.innerHTML = "No hay clases registradas en esa fecha.";
+  }
+}
+function toggleDuplicadas() {
+  const duplicadas = document.querySelectorAll(".duplicada");
+  duplicadas.forEach(d => {
+    d.classList.toggle("oculto"); // Alterna entre mostrar y ocultar
+  });
+}

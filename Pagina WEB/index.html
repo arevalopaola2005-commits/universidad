@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Universidad Virtual - Mis Cursos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Universidad Virtual</h1>
+    <nav>
+      <a href="#">Página Principal</a>
+      <a href="#">Área Personal</a>
+      <a href="#">Mis Cursos</a>
+      <input type="text" placeholder="Buscar cursos...">
+      <button class="btn-horarios" onclick="abrirHorarios()">Organizador de Horarios</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Vista general de curso</h2>
+    <!-- Filtros -->
+    <div class="filtros">
+      <button>Todos</button>
+      <button>Ordenamiento por secuencia</button>
+      <button>Tarjeta</button>
+    </div>
+
+    <!-- Tarjetas de cursos -->
+    <div class="cursos">
+      <div class="curso">
+        <div class="banner-curso" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRinEW3FHaremHjDoIhywvYerDkQzU2P5GlnNIBkkA9Ag&s=10');"></div>
+        <h3>Inducción TICs - Estudiantes</h3>
+        <div class="progreso"><div style="width:100%"></div></div>
+        <p>100% completado</p>
+        <button class="btn-curso">Entrar al curso</button>
+      </div>
+
+      <div class="curso">
+        <div class="banner-curso" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');"></div>
+        <h3>Informática y Convergencia</h3>
+        <div class="progreso"><div style="width:43%"></div></div>
+        <p>43% completado</p>
+        <button class="btn-curso">Entrar al curso</button>
+      </div>
+
+      <div class="curso">
+        <div class="banner-curso" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b');"></div>
+        <h3>Formación Ciudadana</h3>
+        <div class="progreso"><div style="width:52%"></div></div>
+        <p>52% completado</p>
+        <button class="btn-curso">Entrar al curso</button>
+      </div>
+
+      <div class="curso">
+        <div class="banner-curso" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');"></div>
+        <h3>Fundamentos de Contabilidad</h3>
+        <div class="progreso"><div style="width:33%"></div></div>
+        <p>33% completado</p>
+        <button class="btn-curso">Entrar al curso</button>
+      </div>
+
+      <div class="curso">
+        <div class="banner-curso" style="background-image:url('https://images.unsplash.com/photo-1508780709619-79562169bc64');"></div>
+        <h3>Proyecto de Vida</h3>
+        <div class="progreso"><div style="width:5%"></div></div>
+        <p>5% completado</p>
+        <button class="btn-curso">Entrar al curso</button>
+      </div>
+
+      <div class="curso">
+        <div class="banner-curso" style="background-image:url('https://images.unsplash.com/photo-1529070538774-1843cb3265df');"></div>
+        <h3>Placement Test Inglés</h3>
+        <div class="progreso"><div style="width:0%"></div></div>
+        <p>0% completado</p>
+        <button class="btn-curso">Entrar al curso</button>
+      </div>
+
+      <div class="curso">
+        <div class="banner-curso" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1');"></div>
+        <h3>Virtual English - Beginner 1</h3>
+        <div class="progreso"><div style="width:0%"></div></div>
+        <p>Sin progreso</p>
+        <button class="btn-curso">Entrar al curso</button>
+      </div>
+    </div>
+
+  </main>
+  
+  <!-- Modal Organizador de Clases -->
+  <div id="modalHorarios" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarHorarios()">&times;</span>
+      <h2>Organizador de Clases - Vista Semanal</h2>
+
+      <!-- Vista semanal -->
+      <table id="tablaHorarios">
+        <tr>
+          <th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th>
+        </tr>
+        <tr>
+          <td><p>Matemáticas</p><p>8:00 - 10:00</p><a href="#">Entrar a clase</a><p class="duplicada">Matemáticas (Refuerzo) 10:00 - 11:00</p></td>
+          <td><p>Informática</p><p>10:00 - 12:00</p><a href="#">Entrar a clase</a></td>
+          <td><p>Contabilidad</p><p>2:00 - 4:00</p><a href="#">Entrar a clase</a></td>
+          <td><p>Proyecto de Vida</p><p>9:00 - 11:00</p><a href="#">Entrar a clase</a></td>
+          <td><p>Inglés</p><p>3:00 - 5:00</p><a href="#">Entrar a clase</a></td>
+        </tr>
+      </table>
+
+      <!-- Botón duplicadas -->
+      <button onclick="toggleDuplicadas()">Ocultar/Mostrar Clases Duplicadas</button>
+
+      <!-- Historial de Clases -->
+      <h3>Historial de Clases (Semana anterior)</h3>
+      <ul id="historialClases">
+        <li>Lunes 31/08 - Matemáticas <a href="#">Ver grabación</a></li>
+        <li>Martes 01/09 - Informática <a href="#">Ver grabación</a></li>
+        <li>Miércoles 02/09 - Contabilidad <a href="#">Ver grabación</a></li>
+      </ul>
+      <button onclick="abrirCalendario()">Ver más (Mes)</button>
+    </div>
+  </div>
+
+  <!-- Modal Calendario -->
+  <div id="modalCalendario" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarCalendario()">&times;</span>
+      <h2>Historial de Clases - Mes</h2>
+
+       <!-- Calendario emergente -->
+      <label for="fechaBusqueda">Selecciona una fecha:</label>
+      <input type="date" id="fechaBusqueda" onchange="buscarClasePorFecha()">
+      <div id="resultadoBusqueda"></div>
+      
+      <label for="fechaBusqueda">Selecciona una fecha:</label>
+      <input type="date" id="fechaBusqueda" onchange="buscarClasePorFecha()">
+      <div id="resultadoBusqueda"></div>
+      <h3>Todas las clases del mes</h3>
+      <table id="tablaMes">
+        <thead>
+          <tr><th>Fecha</th><th>Curso</th><th>Enlace</th><th>Estado</th></tr>
+        </thead>
+        <tbody id="cuerpoTablaMes"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Universidad Virtual - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function abrirHorarios() { document.getElementById("modalHorarios").style.display = "block"; }
+    function cerrarHorarios() { document.getElementById("modalHorarios").style.display = "none"; }
+
+    // Datos de ejemplo para historial mensual
+    const historialMesData = [
+      { fecha: "2026-09-03", curso: "Matemáticas", link: "#", estado: "Completada" },
+      { fecha: "2026-09-04", curso: "Informática", link: "#", estado: "Pendiente" },
+      { fecha: "2026-09-05", curso: "Contabilidad", link: "#", estado: "Cancelada" },
+      { fecha: "2026-09-06", curso: "Proyecto de Vida", link: "#", estado: "Completada"},
+      { fecha: "2026-09-07", curso: "Inglés", link: "#", estado: "Pendiente" }
+
+  ]; function abrirCalendario() {
+      const cuerpoTabla =document.getElementById("cuerpoTablaMes");
+      cuerpoTabla.innerHTML = "";
+      historialMesData.forEach(clase => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td>${clase.fecha}</td>
+          <td>${clase.curso}</td>
+          <td><a href="${clase.link}">Ver grabación</a></td>
+          <td class="estado-${clase.estado.toLowerCase()}">${clase.estado}</td>
+        `;
+        cuerpoTabla.appendChild(fila);
+      });
+      document.getElementById("modalCalendario").style.display = "block";
+    }
+
+    function cerrarCalendario() {
+      document.getElementById("modalCalendario").style.display = "none";
+    }
+
+    function buscarClasePorFecha() {
+      const fechaSeleccionada = document.getElementById("fechaBusqueda").value;
+      const resultado = document.getElementById("resultadoBusqueda");
+      resultado.innerHTML = "";
+
+      const clase = historialMesData.find(c => c.fecha === fechaSeleccionada);
+      if (clase) {
+        resultado.innerHTML = `${clase.fecha} - ${clase.curso} (${clase.estado}) <a href="${clase.link}">Ver grabación</a>`;
+      } else {
+        resultado.innerHTML = "No hay clases registradas en esa fecha.";
+      }
+    }
+
+    function toggleDuplicadas() {
+      const duplicadas = document.querySelectorAll(".duplicada");
+      duplicadas.forEach(d => d.classList.toggle("oculto"));
+    }
+  </script>
+  
+</body>

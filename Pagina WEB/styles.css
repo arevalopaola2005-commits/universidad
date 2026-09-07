@@ -1,0 +1,427 @@
+/* Botón Organizador */
+.btn-horarios {
+    background-color: #ffcc00;
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: background 0.3s, transform 0.2s;
+}
+.btn-horarios:hover {
+    background-color: #ffd633;
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+.modal-contenido {
+    background: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.cerrar {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #003366;
+}
+.cerrar:hover {
+    color: #ff0000;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #003366;
+    color: white;
+}
+/* Formulario dentro del modal */
+form {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+form input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+form button {
+    background-color: #0055a5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #003366;
+}
+.banner-curso {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+}
+.btn-curso {
+    background-color: #0055a5;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+.btn-curso:hover {
+    background-color: #003366;
+    transform: scale(1.05);
+}
+/* Contenedor de cursos centrado */
+.cursos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas */
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Tarjeta de curso más compacta */
+.curso {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 220px;   /* antes 280px, ahora más pequeño */
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+.curso:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen/banner del curso */
+.banner-curso {
+    height: 90px;   /* antes 120px, ahora más bajo */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Título y progreso */
+.curso h3 {
+    color: #003366;
+    margin: 8px;
+    font-size: 14px; /* texto más compacto */
+}
+.progreso {
+    background: #ddd;
+    border-radius: 5px;
+    height: 8px; /* barra más delgada */
+    margin: 0 10px;
+}
+.progreso div {
+    background: #0055a5;
+    height: 100%;
+    border-radius: 5px;
+}
+.curso p {
+    margin: 8px;
+    font-size: 12px; /* texto más pequeño */
+}
+
+/* Botón del curso */
+.btn-curso {
+    background-color: #0055a5;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    margin: 8px auto;
+    display: block;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+.btn-curso:hover {
+    background-color: #003366;
+    transform: scale(1.05);
+}
+/* Fondo académico general */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeV72kHQP-Q9Q0O3Zf699Y0J2z3tqlxbU-Rl7n4Fd_0Q&s=10) no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+/* Capa semitransparente para mejorar legibilidad */
+main {
+    background-color: rgba(255,255,255,0.85);
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Contenedor de cursos centrado */
+.cursos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Tarjeta de curso compacta */
+.curso {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    width: 220px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+.curso:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen/banner del curso */
+.banner-curso {
+    height: 90px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Título y progreso */
+.curso h3 {
+    color: #003366;
+    margin: 8px;
+    font-size: 14px;
+}
+.progreso {
+    background: #ddd;
+    border-radius: 5px;
+    height: 8px;
+    margin: 0 10px;
+}
+.progreso div {
+    background: #0055a5;
+    height: 100%;
+    border-radius: 5px;
+}
+.curso p {
+    margin: 8px;
+    font-size: 12px;
+}
+
+/* Botón del curso */
+.btn-curso {
+    background-color: #0055a5;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    margin: 8px auto;
+    display: block;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+.btn-curso:hover {
+    background-color: #003366;
+    transform: scale(1.05);
+}
+#tablaHorarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+#tablaHorarios th, #tablaHorarios td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    vertical-align: top;
+}
+#tablaHorarios th {
+    background-color: #003366;
+    color: white;
+}
+#tablaHorarios td a {
+    display: inline-block;
+    margin-top: 5px;
+    color: #0055a5;
+    text-decoration: none;
+    font-weight: bold;
+}
+#tablaHorarios td a:hover {
+    text-decoration: underline;
+}
+#historialClases {
+    margin-top: 15px;
+    list-style: none;
+    padding: 0;
+}
+#historialClases li {
+    margin: 5px 0;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+.modal-contenido {
+  background: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+}
+.cerrar {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+#resultadoBusqueda {
+  margin-top: 15px;
+  font-weight: bold;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+.modal-contenido {
+  background: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+}
+.cerrar {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+#resultadoBusqueda {
+  margin-top: 15px;
+  font-weight: bold;
+}
+#listaMes {
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+}
+#listaMes li {
+  margin: 5px 0;
+}
+#tablaMes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+#tablaMes th, #tablaMes td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+#tablaMes th {
+  background-color: #2d00f8;
+}
+.estado-completada {
+  color: green;
+  font-weight: bold;
+}
+.estado-pendiente {
+  color: orange;
+  font-weight: bold;
+}
+.estado-cancelada {
+  color: red;
+  font-weight: bold;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+.modal-contenido {
+  background: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+}
+.cerrar {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+#tablaMes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+#tablaMes th, #tablaMes td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+#tablaMes th {
+  background-color: #f2f2f2;
+}
+.estado-completada { color: green; font-weight: bold; }
+.estado-pendiente { color: orange; font-weight: bold; }
+.estado-cancelada { color: red; font-weight: bold; }
+.duplicada {
+  color: #555;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.oculto {
+  display: none; /* Oculta las clases duplicadas */
+}
+
+
